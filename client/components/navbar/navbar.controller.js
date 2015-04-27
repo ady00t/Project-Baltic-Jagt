@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('balticjagtApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, cartService) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -20,4 +20,5 @@ angular.module('balticjagtApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+	$scope.cartList = cartService.list;
   });

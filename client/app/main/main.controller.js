@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('balticjagtApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+  .controller('MainCtrl', function ($scope, $http, socket, storeService, cartService) {
+   
+	
+	$scope.cotois = [];
+		storeService.list(function(cotois) {
+       $scope.cotois = cotois;
     });
-
+$scope.addItem = function (item) {
+			cartService.addItem(item);
+			$scope.item = {};
+			
+		}
     $scope.addThing = function() {
       if($scope.newThing === '') {
         return;
