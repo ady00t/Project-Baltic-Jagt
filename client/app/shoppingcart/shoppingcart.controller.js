@@ -7,6 +7,6 @@ angular.module('balticjagtApp')
 	$scope.removeItem = function (index) {
 			cartService.removeItem(index);
 			//$scope.items.splice(index, 1);
-		}
+		};
 
   });
