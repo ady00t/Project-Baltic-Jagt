@@ -12,6 +12,6 @@ $scope.addItem = function (item) {
 			cartService.addItem(item);
 			$scope.item = {};
 			
-		}
+		};
 
   });
