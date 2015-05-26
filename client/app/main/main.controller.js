@@ -13,5 +13,6 @@ $scope.addItem = function (item) {
 			$scope.item = {};
 			
 		};
+		
 
   });

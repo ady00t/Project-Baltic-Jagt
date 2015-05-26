@@ -41,7 +41,17 @@ angular.forEach(service.list, function(obj, key) {
 			 // Put cookie
 			  $cookieStore.put('shoppingCart', service.list);		
 			};
+	service.totalAmount = function() {
+        var total = 0;
+        angular.forEach(service.list, function(item) {
+            total += item.qty * item.price;
+        });
+
+        return total;
+    };
 			
-	
+	service.emptyCart = function(){
+		
+		$cookieStore.remove('shoppingCart')};
 	return service;
   });

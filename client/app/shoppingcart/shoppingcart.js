@@ -8,4 +8,6 @@ angular.module('balticjagtApp')
         templateUrl: 'app/shoppingcart/shoppingcart.html',
         controller: 'ShoppingcartCtrl'
       });
+	
+	
   });

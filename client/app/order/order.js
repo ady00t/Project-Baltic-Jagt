@@ -7,5 +7,11 @@ angular.module('balticjagtApp')
         url: '/order',
         templateUrl: 'app/order/order.html',
         controller: 'OrderCtrl'
+      })
+	.state('confirmation', {
+        url: '/confirmation',
+        templateUrl: 'app/order/confirmation.html',
+        controller: 'OrderCtrl'
       });
+	
   });
