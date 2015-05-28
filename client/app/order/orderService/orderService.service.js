@@ -2,14 +2,14 @@
 'use strict';
 
 angular.module('balticjagtApp')
-  .factory('orderService',function($http, cartService){
+  .factory('orderService',function($http, cartService, customerService){
 			var service = {};
 			service.list = function(callback){
 				$http.get('/api/orders').success(callback);
 			};
 	
 	var listCartItems = cartService.list;
-	var user = "5511447d0bec8b2f6219da7b";
+	
 	var totalPrice1 = cartService.totalAmount() * 1.25;
 	var orderLine = [];
 	
@@ -22,12 +22,16 @@ angular.module('balticjagtApp')
 		});
 	});
 
-	service.createOrder = function (callback) {
+	service.createOrder = function (customer,callback) {
+		customerService.addCust(customer,function(cust){
+		
 		$http.post('/api/orders', {
-			user: user,
+			user: cust._id,
 			totalPrice: totalPrice1,
 			orderLine: orderLine
 		}).success(callback);
+		});
+		
 	};
 	service.find = function(_id, callback){ 	
 				$http.get('/api/orders/'+_id).success(callback);

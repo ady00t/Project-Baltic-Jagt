@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('balticjagtApp')
-	.controller('OrderCtrl', function ($scope,$window, $http, $cookieStore, socket, cartService, customerService, orderService) {
+	.controller('OrderCtrl', function ($scope, $http, $cookieStore, socket, cartService, customerService, orderService) {
+
 	
+	$scope.customer = {name:'', address:'', phone:'', email:'' };
 
 	$scope.save = function () {
-	orderService.createOrder(function(order){
+	
+	orderService.createOrder($scope.customer,function(order){
 		
          $cookieStore.put('teste', order);
 		
@@ -21,12 +24,5 @@ angular.module('balticjagtApp')
 	//	$window.location.reload(true);
 	};
 	
-	$scope.savep = function(){
-			$http.post('/api/customers', {name: $scope.nameC, address: $scope.addressC, phone: $scope.phoneC, email:$scope.emailC }).
-			success(function(data, status, headers, config) {
-				// this callback will be called asynchronously
-				// when the response is available
-				console.log('success');				
-			});
-		};
+	
 	});

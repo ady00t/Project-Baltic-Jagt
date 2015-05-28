@@ -1,33 +1,38 @@
 <div class="container">
+
   <form class="form-horizontal" role="form">
     <fieldset>
       <legend>Payment</legend>
       <div class="form-group">
         <label class="col-sm-3 control-label" for="card-holder-name">Full Name</label>
         <div class="col-sm-9">
-          <input ng-model="nameC" type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="First Name & Last Name">
+          <input ng-model="customer.name" type="text" class="form-control"  placeholder="First Name & Last Name" required>
+			
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-3 control-label" for="card-number">Full Adress</label>
         <div class="col-sm-9">
-          <input  ng-model="addressC"  type="text" class="form-control" name="card-number" id="card-number" placeholder="street, number, zipcpde, city">
+          <input  ng-model="customer.address"  type="text" class="form-control" placeholder="street, number, zipcpde, city" required>
         </div>
 		  </div>
   <div class="form-group">
         <label class="col-sm-3 control-label" for="card-number">Phone</label>
         <div class="col-sm-9">
-          <input ng-model="phoneC" type="text" class="form-control" name="card-number" id="card-number" placeholder="international format ex.: +XXXXXX">
+          <input ng-model="customer.phone" type="text" class="form-control" placeholder="international format ex.: +XXXXXX" required>
         </div>
 	  </div>
 	  <div class="form-group">
         <label class="col-sm-3 control-label" for="card-number">Email</label>
         <div class="col-sm-9">
-          <input ng-model="emailC" type="text" class="form-control" name="card-number" id="card-number" placeholder="email format xxx@xxxxx.xx">
+          <input ng-model="customer.email" type="text" class="form-control"  placeholder="email format xxx@xxxxx.xx" required>
         </div>
-		
+	
       </div>
+		  <a class="btn btn-success" ng-click ="save()" ng-href="/confirmation">Order Now <span class="glyphicon glyphicon-play"></span></a>
     </fieldset>
-	  <a class="btn btn-success" ng-click ="save()" ng-href="/confirmation">Order Now <span class="glyphicon glyphicon-play"></span></a>
-	  <p>Your order number is: {{returnedOrder._id}} </p>
+	</form>
+	 
 </div>
+	 
+  
